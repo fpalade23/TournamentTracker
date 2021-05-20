@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="b38aedb7-fe48-42e0-b1f2-f5931f4fc2e0" ChangeDateTime="05/20/2021 09:30:15">
+    <Property Name="ElementName" Value="[dbo].[TournamentEntries].[TorunamentId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[TournamentEntries]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="TournamentId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="1ae722e6-77bc-40da-a907-dbccb2220ed3" ChangeDateTime="05/20/2021 10:07:20">
+    <Property Name="ElementName" Value="[dbo].[FK_People_ToTable]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[People]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_People_ToTeamMembers]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="a8b68521-ac2c-4394-88a3-b36fa249693c" ChangeDateTime="05/20/2021 10:08:55">
+    <Property Name="ElementName" Value="[dbo].[FK_TournamentEntries_ToTable]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[TournamentEntries]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_TournamentEntries_ToTournament]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="3097125c-e519-4582-8834-72f7da6e1ea9" ChangeDateTime="05/20/2021 10:09:14">
+    <Property Name="ElementName" Value="[dbo].[FK_TournamentEntries_ToTable_1]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[TournamentEntries]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_TournamentEntries_ToTeams]" />
+  </Operation>
+</Operations>

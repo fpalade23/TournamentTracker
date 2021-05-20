@@ -73,6 +73,7 @@
     <Build Include="Stored Procedures\spMatchups_GetByTournament.sql" />
     <Build Include="Stored Procedures\spMatchupEntries_GetByMatchup.sql" />
     <Build Include="Stored Procedures\spPrizes_Insert.sql" />
+    <Build Include="Stored Procedures\spPeople_Insert.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Tables\Tournaments.refactorlog" />
@@ -83,5 +84,9 @@
     <Build Include="Tables\TournamentEntries.sql" />
     <Build Include="Tables\TournamentPrizes.sql" />
     <Build Include="Tables\Tournaments.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Tournaments.publish.xml" />
+    <None Include="Tournaments_1.publish.xml" />
   </ItemGroup>
 </Project>

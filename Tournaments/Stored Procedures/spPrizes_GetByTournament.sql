@@ -1,6 +1,11 @@
 ﻿CREATE PROCEDURE [dbo].[spPrizes_GetByTournament]
-	@param1 int = 0,
-	@param2 int
+	@TournamentId int
 AS
-	SELECT @param1, @param2
-RETURN 0
+BEGIN
+	SET NOCOUNT ON;
+	
+	SELECT p.*
+	FROM [dbo].[Prizes] p
+	INNER JOIN [dbo].[TournamentPrizes] t ON p.id = t.PrizeId
+	WHERE t.TournamentId = @TournamentId
+END

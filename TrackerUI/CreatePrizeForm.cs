@@ -30,8 +30,10 @@ namespace TrackerUI
                     prizeAmountValue.Text, 
                     prizePercentageValue.Text);
 
+                // Save data to db
                 GlobalConfig.Connection.CreatePrize(model);
 
+                // Clear form values
                 placeNameValue.Text = "";
                 placeNumberValue.Text = "";
                 prizeAmountValue.Text = "0";

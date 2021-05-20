@@ -53,5 +53,9 @@ namespace TrackerLibrary.Models
             double.TryParse(prizePercentage, out prizePercentageValue);
             PrizePercentage = prizePercentageValue;
         }
+
+        public PrizeModel()
+        {
+        }
     }
 }

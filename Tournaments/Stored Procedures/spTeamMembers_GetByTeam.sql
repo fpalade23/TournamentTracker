@@ -5,7 +5,7 @@ BEGIN
 	SET NOCOUNT ON;
 	
 	SELECT p.*
-	FROM [dbo].[TeamMembers] p
-	INNER JOIN [dbo].[Teams] t ON p.TeamId = t.Id
-	WHERE p.TeamId = @TeamId
+	FROM [dbo].[TeamMembers] m
+	INNER JOIN [dbo].[People] p ON m.PersonId = p.Id
+	WHERE m.TeamId = @TeamId
 END

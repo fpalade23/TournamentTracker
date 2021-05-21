@@ -23,6 +23,7 @@
     <SqlServerVerification>False</SqlServerVerification>
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseSet>True</TargetDatabaseSet>
+    <ValidateCasingOnIdentifiers>False</ValidateCasingOnIdentifiers>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -67,13 +68,19 @@
     <Build Include="Tables\Prizes.sql" />
     <Build Include="Stored Procedures\spTournaments_GetAll.sql" />
     <Build Include="Stored Procedures\spTeamMembers_GetByTeam.sql" />
-    <Build Include="Stored Procedures\spTeam_GetByTournament.sql" />
+    <Build Include="Stored Procedures\spTeams_GetByTournament.sql" />
     <Build Include="Stored Procedures\spPrizes_GetByTournament.sql" />
     <Build Include="Stored Procedures\spPeople_GetAll.sql" />
     <Build Include="Stored Procedures\spMatchups_GetByTournament.sql" />
     <Build Include="Stored Procedures\spMatchupEntries_GetByMatchup.sql" />
     <Build Include="Stored Procedures\spPrizes_Insert.sql" />
     <Build Include="Stored Procedures\spPeople_Insert.sql" />
+    <Build Include="Stored Procedures\spTeams_Insert.sql" />
+    <Build Include="Stored Procedures\spTeamMembers_Insert.sql" />
+    <Build Include="Stored Procedures\spTeams_GetAll.sql" />
+    <Build Include="Stored Procedures\spTournaments_Insert.sql" />
+    <Build Include="Stored Procedures\spTournamentPrizes_Insert.sql" />
+    <Build Include="Stored Procedures\spTournamentEntries_Insert.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Tables\Tournaments.refactorlog" />
@@ -87,6 +94,5 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Tournaments.publish.xml" />
-    <None Include="Tournaments_1.publish.xml" />
   </ItemGroup>
 </Project>

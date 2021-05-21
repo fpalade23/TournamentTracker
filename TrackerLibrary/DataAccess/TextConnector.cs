@@ -12,6 +12,9 @@ namespace TrackerLibrary.DataAccess
     {
         private const string PrizesFile = "PrizeModels.csv";
         private const string PeopleFile = "PersonModels.csv";
+        private const string TeamsFile = "TeamModels.csv";
+        private const string TournamentsFile = "TournamentModels.csv";
+
 
         /// <summary>
         /// Saves a new person in the text file.
@@ -20,7 +23,7 @@ namespace TrackerLibrary.DataAccess
         /// <returns>The people information, including the unique identifier.</returns>
         public PersonModel CreatePerson(PersonModel model)
         {
-            // Load the text file and convert the text to List<PrizeModel>
+            // Load the text file and convert the text to List<PersonModel>
             List<PersonModel> people = PeopleFile.FullFilePath().LoadFile().ConvertToPersonModels();
 
             // Find the max id
@@ -78,6 +81,73 @@ namespace TrackerLibrary.DataAccess
         public List<PersonModel> GetPerson_All()
         {
             return PeopleFile.FullFilePath().LoadFile().ConvertToPersonModels();
+        }
+
+        /// <summary>
+        /// Saves a new team in the text file.
+        /// </summary>
+        /// <param name="model">The teams information.</param>
+        /// <returns>The teams information, including the unique identifier.</returns>
+        public TeamModel CreateTeam(TeamModel model)
+        {
+            // Load the text file and convert the text to List<TeamModel>
+            List<TeamModel> teams = TeamsFile.FullFilePath().LoadFile().ConvertToTeamModels(PeopleFile);
+
+            // Find the max id
+            int currentId = 1;
+
+            if (teams.Count > 0)
+            {
+                currentId = teams.OrderByDescending(x => x.Id).First().Id + 1;
+            }
+            model.Id = currentId;
+
+            // Add the new record with the new id (max+1)
+            teams.Add(model);
+
+            // Convert the teams to a list<string>
+            // save the list<string> to text file
+            teams.SaveToTeamsFile(TeamsFile);
+
+            return model;
+        }
+
+        /// <summary>
+        /// Get the teams from the text file
+        /// </summary>
+        /// <returns>A list of teams</returns>
+        public List<TeamModel> GetTeam_All()
+        {
+            return TeamsFile.FullFilePath().LoadFile().ConvertToTeamModels(PeopleFile);
+        }
+
+        /// <summary>
+        /// Saves a new tournament in the text file.
+        /// </summary>
+        /// <param name="model">The tournament information.</param>
+        public void CreateTournament(TournamentModel model)
+        {
+            // Load the text file and convert the text to List<TournamentModel>
+            List<TournamentModel> tournaments = TournamentsFile
+                .FullFilePath().
+                LoadFile()
+                .ConvertToTournamentModels(TeamsFile, PeopleFile, PrizesFile);
+
+            // Find the max id
+            int currentId = 1;
+
+            if (tournaments.Count > 0)
+            {
+                currentId = tournaments.OrderByDescending(x => x.Id).First().Id + 1;
+            }
+            model.Id = currentId;
+
+            // Add the new record with the new id (max+1)
+            tournaments.Add(model);
+
+            // Convert the prizes to a list<string>
+            // save the list<string> to text file
+            tournaments.SaveToTournamentsFile(TeamsFile);
         }
     }
 }

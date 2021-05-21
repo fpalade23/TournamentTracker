@@ -28,4 +28,11 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="[FK_TournamentEntries_ToTeams]" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="d05d2d72-3283-487d-a060-a308a05218c2" ChangeDateTime="05/21/2021 13:22:13">
+    <Property Name="ElementName" Value="[dbo].[Tournaments].[a]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Tournaments]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Active" />
+  </Operation>
 </Operations>
